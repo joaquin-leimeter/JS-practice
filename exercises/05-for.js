@@ -31,7 +31,7 @@ var sentence = '';
 for (let i = 0; i < wordList.length; i++) {
    sentence = sentence + wordList[i] + ' - ';
 }
-sentence = sentence.substring(0,sentence.length - 3); //this gets rid of the last separator
+sentence = sentence.substring(0, sentence.length - 3); //this gets rid of the last separator
 alert(sentence);
 
 //d

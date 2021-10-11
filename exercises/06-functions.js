@@ -10,16 +10,14 @@ e) Convertir la validación del ejercicio 6b) en una función separada y llamarl
 console.log('EXERCISE 6');
 
 //a
-var num1, num2;
 function sumA(num1, num2) {
    return num1 + num2;
 }
-var addA = sumA(1.5, 2.5);
-console.log('a:\t', addA);
+console.log('a:\t', sumA(1.5, 2.5));
 
 //b 
 function sumB(num1, num2) {
-   if(typeof num1 == 'number' && typeof num2 == 'number') {
+   if(typeof num1 === 'number' && typeof num2 === 'number') {
       return num1 + num2;
    } else {
       return NaN;
@@ -30,15 +28,15 @@ console.log('\tShould be NaN:' , sumB(1, '2'));
 
 //c
 function validateInteger(possibleInteger) {
-   if (typeof possibleInteger == 'number' && Number.isInteger(possibleInteger)){
+   if (typeof possibleInteger === 'number' && Number.isInteger(possibleInteger)){
       return true;
    } else {
       return false;
    }
 }
-console.log('c:\tEntry: \'not a number\'', validateInteger('not a number'));
-console.log('\tEntry: \'1\'', validateInteger('1'));
-console.log('\tEntry: 1', validateInteger(1));
+console.log('c:\tEntry: \'not a number\'\tresult:', validateInteger('not a number'));
+console.log('\tEntry: \'1\'\tresult:', validateInteger('1')); 
+console.log('\tEntry: 1\tresult:', validateInteger(1)); 
 
 //d
 function sumD(num1, num2) {
@@ -56,7 +54,7 @@ console.log('d:\tEntry: \'3\' and 2 \tresult:', sumD('3',2));
 
 //e
 function validateNumber(possibleNumber) {
-   if (typeof possibleNumber == 'number'){
+   if (typeof possibleNumber === 'number'){
       return true;
    } else {
       return false;
@@ -69,5 +67,5 @@ function sumE(num1, num2) {
       return NaN;
    }
 }
-console.log('e:\tentry: \'1\' and 2', sumE('1', 2));
-console.log('\tentry: 1 and 2', sumE(1, 2));
+console.log('e:\tentry: \'1\' and 2\tresult:', sumE('1', 2));
+console.log('\tentry: 1 and 2\tresult:', sumE(1, 2));
