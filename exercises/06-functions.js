@@ -11,51 +11,63 @@ console.log('EXERCISE 6');
 
 //a
 var num1, num2;
-function additionA(num1, num2) {
+function sumA(num1, num2) {
    return num1 + num2;
 }
-var addA = additionA(1.5, 2.5);
-console.log('a:', addA);
+var addA = sumA(1.5, 2.5);
+console.log('a:\t', addA);
 
 //b 
-function additionB(num1, num2) {
-   if (Number.isNaN(num1) || Number.isNaN(num2)) {
-      return NaN;
-   } else {
+function sumB(num1, num2) {
+   if(typeof num1 == 'number' && typeof num2 == 'number') {
       return num1 + num2;
+   } else {
+      return NaN;
    }
 }
-console.log('b:');
-console.log('\t', additionB(1, 2));
-console.log('\t', additionB(1, '1'));
+console.log('b:\tShould be a sum:', sumB(1, 2));
+console.log('\tShould be NaN:' , sumB(1, '2'));
 
 //c
-function validateInteger(possibleNumber) {
-   return !(isNaN(possibleNumber));
-}
-console.log('c:');
-console.log('\t', validateInteger('not a number'));
-console.log('\t', validateInteger(1));
-
-//d
-console.log('d:')
-function isThisAnInteger(possibleInteger) {
-   return Number.isInteger(possibleInteger);
-}
-function additionB(num1, num2) {
-   if (isNaN(num1) || isNaN(num2)) {
-      return NaN;
+function validateInteger(possibleInteger) {
+   if (typeof possibleInteger == 'number' && Number.isInteger(possibleInteger)){
+      return true;
    } else {
-      if (!(isThisAnInteger(num1))) {
-         alert(num1, 'Is not an integer');
-         return Math.round(num1);
-      }
-      if (!(isThisAnInteger(num2))) {
-         alert(num2, 'Is not an integer');
-         return Math.round(num2);
-      }
-      return num1 + num2;
+      return false;
    }
 }
+console.log('c:\tEntry: \'not a number\'', validateInteger('not a number'));
+console.log('\tEntry: \'1\'', validateInteger('1'));
+console.log('\tEntry: 1', validateInteger(1));
 
-console.log(additionB('3',2));
+//d
+function sumD(num1, num2) {
+   if(validateInteger(num1) && validateInteger(num2)) {
+      return num1 + num2;
+   } else if (!(validateInteger(num1))) {
+      alert('alert: ' + num1 + ' is not an integer');
+      return NaN;
+   } else {
+      alert('alert: ' + num2 + ' is not an integer');
+      return NaN;
+   }
+}
+console.log('d:\tEntry: \'3\' and 2 \tresult:', sumD('3',2));
+
+//e
+function validateNumber(possibleNumber) {
+   if (typeof possibleNumber == 'number'){
+      return true;
+   } else {
+      return false;
+   }
+}
+function sumE(num1, num2) {
+   if (validateNumber(num1) && validateNumber(num2)) {
+      return num1 + num2;
+   } else {
+      return NaN;
+   }
+}
+console.log('e:\tentry: \'1\' and 2', sumE('1', 2));
+console.log('\tentry: 1 and 2', sumE(1, 2));

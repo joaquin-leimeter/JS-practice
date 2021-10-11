@@ -25,7 +25,6 @@ if (randomNumber >= 0.5) {
 //b
 randomAge = Math.random() * 100;
 console.log (randomAge);
-
 if (randomAge < 2) {
    alert('baby');
 } else if (randomAge < 13) {
